@@ -1,0 +1,30 @@
+{
+  "name": "pixi-scenes",
+  "version": "1.0.0",
+  "description": "Managing multiple scenes within your pixi application.",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florisdh/pixi-scenes.git"
+  },
+  "keywords": [
+    "pixi",
+    "pixi.js",
+    "scenes",
+    "states"
+  ],
+  "author": "Floris de Haan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/florisdh/pixi-scenes/issues"
+  },
+  "homepage": "https://github.com/florisdh/pixi-scenes#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "pixi.js": "^5.0.4",
+    "typescript": "^3.5.3"
+  }
+}

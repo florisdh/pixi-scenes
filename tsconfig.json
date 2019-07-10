@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "amd",
+        "declaration": true,
+        "outFile": "build/index.js",
+        "strict": true
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
