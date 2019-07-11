@@ -1,3 +1,3 @@
-export {IState} from "./iState";
-export {BaseState} from "./baseState";
-export {StateManager} from "./stateManager";
+declare module 'pixi-scenes' {
+    export = PixiScenes;
+}
