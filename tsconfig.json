@@ -1,9 +1,12 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "amd",
+        "lib": [ "es2015", "dom" ],
+        "module": "commonjs",
+        "outDir": "build",
+        "declarationDir": "build/typings",
         "declaration": true,
-        "outFile": "build/index.js",
+        "sourceMap": true,
         "strict": true
     },
     "include": [
