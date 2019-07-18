@@ -15,7 +15,9 @@
     "pixi",
     "pixi.js",
     "scenes",
-    "states"
+    "states",
+    "typescript",
+    "html5"
   ],
   "author": "Floris de Haan",
   "license": "ISC",
