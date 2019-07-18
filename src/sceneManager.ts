@@ -16,7 +16,7 @@ export class SceneManager {
     private update(delta: number): void {
         let active: IScene|null = this.active;
         if (active) {
-            active.update(delta);
+            active.update(delta / PIXI.settings.TARGET_FPMS);
         }
     }
 
