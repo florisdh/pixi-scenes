@@ -1,37 +1,37 @@
-import {IState} from "./iState";
+import {IScene} from "./iScene";
 
-export class StateManager {
+export class SceneManager {
     private app: PIXI.Application;
-    private states: {[name: string]: IState};
+    private scenes: {[name: string]: IScene};
     private current: string|null;
 
     constructor(app: PIXI.Application) {
         this.app = app;
-        this.states = {};
+        this.scenes = {};
         this.current = null;
         // Listen for animate update
         app.ticker.add(this.update.bind(this));
     }
 
     private update(delta: number): void {
-        let active: IState|null = this.active;
+        let active: IScene|null = this.active;
         if (active) {
             active.update(delta);
         }
     }
 
-    public add(name: string, state: IState): void {
+    public add(name: string, scene: IScene): void {
         if (this.contains(name)) {
             return;
         }
-        this.states[name] = state;
-        state.app = this.app;
-        state.states = this;
-        state.init();
+        this.scenes[name] = scene;
+        scene.app = this.app;
+        scene.scenes = this;
+        scene.init();
     }
 
     public contains(name: string): boolean {
-        return !!this.states[name];
+        return !!this.scenes[name];
     }
 
     public start(name: string): void {
@@ -40,7 +40,7 @@ export class StateManager {
         }
 
         // Stop current
-        let active: IState|null = this.active;
+        let active: IScene|null = this.active;
         if (active) {
             active.stop();
             this.app.stage.removeChild(active);
@@ -54,7 +54,7 @@ export class StateManager {
         }
     }
 
-    public get active(): IState|null {
-        return this.current ? this.states[this.current] : null;
+    public get active(): IScene|null {
+        return this.current ? this.scenes[this.current] : null;
     }
 }

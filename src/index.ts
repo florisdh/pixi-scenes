@@ -1,3 +1,3 @@
-export {BaseState} from "./baseState";
-export {StateManager} from "./stateManager";
-export {IState} from "./iState";
+export {BaseScene} from "./baseScene";
+export {SceneManager} from "./sceneManager";
+export {IScene} from "./iScene";

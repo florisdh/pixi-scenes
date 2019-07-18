@@ -1,15 +1,15 @@
-import {StateManager} from "./stateManager";
-import {IState} from "./IState";
+import {SceneManager} from "./sceneManager";
+import {IScene} from "./iScene";
 
-export class BaseState extends PIXI.Container implements IState {
+export class BaseScene extends PIXI.Container implements IScene {
 
     public app: PIXI.Application|null;
-    public states: StateManager|null;
+    public scenes: SceneManager|null;
 
     constructor() {
         super();
         this.app = null;
-        this.states = null;
+        this.scenes = null;
     }
 
     public init(): void {}
