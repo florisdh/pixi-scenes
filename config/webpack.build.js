@@ -24,7 +24,7 @@ module.exports = {
         new CleanWebpackPlugin()
     ],
     output: {
-        filename: `index.min.js`,
+        filename: `${config.name}.min.js`,
         path: path.join(root, 'build'),
         libraryTarget: 'umd',
         library: config.name,
