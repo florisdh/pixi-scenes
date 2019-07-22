@@ -1,6 +1,6 @@
-import {IScene} from "./iScene";
+import IScene from "./iScene";
 
-export class SceneManager {
+export default class SceneManager {
     private app: PIXI.Application;
     private scenes: {[name: string]: IScene};
     private current: string|null;

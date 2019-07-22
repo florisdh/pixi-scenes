@@ -1,7 +1,7 @@
-import {SceneManager} from "./sceneManager";
-import {IScene} from "./iScene";
+import SceneManager from "./sceneManager";
+import IScene from "./iScene";
 
-export class BaseScene extends PIXI.Container implements IScene {
+export default class Scene extends PIXI.Container implements IScene {
 
     public app: PIXI.Application|null;
     public scenes: SceneManager|null;

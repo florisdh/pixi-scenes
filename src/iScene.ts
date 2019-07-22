@@ -1,6 +1,6 @@
-import {SceneManager} from "./sceneManager";
+import SceneManager from "./sceneManager";
 
-export interface IScene extends PIXI.Container {
+export default interface IScene extends PIXI.Container {
     app: PIXI.Application|null;
     scenes: SceneManager|null;
     init(): void;
