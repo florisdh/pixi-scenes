@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 import SceneManager from "./sceneManager";
 
 export default interface IScene extends PIXI.Container {

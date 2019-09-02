@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 import SceneManager from "./sceneManager";
 import IScene from "./iScene";
 

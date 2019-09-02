@@ -1,3 +1,4 @@
+import * as PIXI from 'pixi.js';
 import IScene from "./iScene";
 
 export default class SceneManager {

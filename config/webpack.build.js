@@ -23,11 +23,14 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin()
     ],
+    externals: {
+        'pixi.js': 'PIXI'
+    },
     output: {
         filename: `${config.name}.min.js`,
         path: path.join(root, 'build'),
         libraryTarget: 'umd',
-        library: config.name,
+        library: ['PIXI', 'scenes'],
         umdNamedDefine: true
     }
 };
