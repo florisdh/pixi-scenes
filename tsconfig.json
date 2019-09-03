@@ -3,8 +3,9 @@
         "target": "es5",
         "lib": [ "es2015", "dom" ],
         "module": "commonjs",
-        "outDir": "build",
-        "declarationDir": "build/typings",
+        "moduleResolution": "node",
+        "outDir": "build/lib",
+        "declarationDir": "build/types",
         "declaration": true,
         "sourceMap": true,
         "strict": true

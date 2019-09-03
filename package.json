@@ -2,10 +2,12 @@
   "name": "pixi-scenes",
   "version": "1.1.0",
   "description": "Managing multiple scenes within your pixi application.",
-  "main": "build/index.min.js",
-  "typings": "build/typings/index.d.ts",
+  "main": "build/pixi-scenes.min.js",
+  "module": "build/esm/index.js",
+  "types": "build/types/index.d.ts",
   "scripts": {
-    "build": "webpack --config ./config/webpack.build.js"
+    "clean": "rimraf build",
+    "build": "tsc && tsc -m es6 --outDir build/esm && webpack --config ./config/webpack.build.js"
   },
   "repository": {
     "type": "git",
@@ -27,8 +29,6 @@
   "homepage": "https://github.com/florisdh/pixi-scenes#readme",
   "dependencies": {},
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "fork-ts-checker-webpack-plugin": "^1.4.2",
     "pixi.js": "^5.0.4",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",

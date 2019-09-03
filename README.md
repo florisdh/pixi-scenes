@@ -1,5 +1,6 @@
 # pixi-scenes
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
+
 [![dependencies](https://david-dm.org/florisdh/pixi-scenes.svg)](https://david-dm.org/florisdh/pixi-scenes)
 
 Split your **pixi.js** application into multiple **scenes** and manage them with ease.
@@ -13,27 +14,28 @@ npm i pixi-scenes
 
 ## Usage
 
+### Accessability
+You can use this library through import/require or by loading it straight into your html. After loading it you can access the library under the global declaration of the pixi namespace. ex: `PIXI.scenes.SceneManager`
+
 ### Setup
 ```ts
-import {SceneManager} from "pixi-scenes";
-const sceneManager: SceneManager = new SceneManager(myPixiApplication);
+import {SceneManager} from 'pixi-scenes';
+const sceneManager = new SceneManager(myPixiApplication);
 ```
 
-### Adding scenes
+### Using scenes
 ```ts
-sceneManager.add('splashScreen', new SplashScreen());
-```
-
-### Switching scenes
-```ts
-sceneManager.start('splashScreen');
+sceneManager.add('splash', new SplashScene());
+sceneManager.add('menu', new MenuScene());
+sceneManager.add('gameover', new GameoverScene());
+sceneManager.start('splash');
 ```
 
 ### Example scene
 ```ts
-import {BaseScene} from 'pixi-scenes';
+import {Scene} from 'pixi-scenes';
 
-export default class SplashScreen extends BaseScene {
+export default class SplashScene extends Scene {
 
     private header: PIXI.Text;
 
@@ -68,5 +70,4 @@ Please let me know if you're using it or have some feedback. :)
 - Add documentation pages
 - Add example project
 - Add tests
-- Setup seperate esm export
 - Bundle definitions

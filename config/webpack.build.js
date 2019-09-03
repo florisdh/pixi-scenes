@@ -1,7 +1,6 @@
 const path = require('path');
 const root = path.join(__dirname, '../');
 const config = require(path.join(root, 'package.json'));
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -20,14 +19,14 @@ module.exports = {
     resolve: {
         extensions: [ '.tsx', '.ts', '.js' ]
     },
-    plugins: [
-        new CleanWebpackPlugin()
-    ],
+    externals: {
+        'pixi.js': 'PIXI'
+    },
     output: {
-        filename: `index.min.js`,
+        filename: `${config.name}.min.js`,
         path: path.join(root, 'build'),
         libraryTarget: 'umd',
-        library: config.name,
+        library: ['PIXI', 'scenes'],
         umdNamedDefine: true
     }
 };
