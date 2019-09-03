@@ -7,7 +7,8 @@
         "outDir": "build/lib",
         "declarationDir": "build/types",
         "declaration": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "strict": true
     },
     "include": [
         "src/**/*"
