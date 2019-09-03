@@ -29,10 +29,10 @@
   "homepage": "https://github.com/florisdh/pixi-scenes#readme",
   "dependencies": {},
   "devDependencies": {
-    "pixi.js": "^5.0.4",
+    "pixi.js": "^5.1.2",
     "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.6"
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
   }
 }
