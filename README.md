@@ -69,5 +69,5 @@ Please let me know if you're using it or have some feedback. :)
 - Improve readme
 - Add documentation pages
 - Add example project
-- Add tests
+- Add exports/globals tests
 - Bundle definitions
