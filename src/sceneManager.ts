@@ -22,13 +22,27 @@ export default class SceneManager {
     }
 
     public add(name: string, scene: IScene): void {
-        if (this.contains(name)) {
+        if (!name || this.contains(name)) {
             return;
         }
         this.scenes[name] = scene;
         scene.app = this.app;
         scene.scenes = this;
         scene.init();
+    }
+
+    public remove(name: string): boolean {
+        if (!name || !this.contains(name)) {
+            return false;
+        }
+        if (this.current === name) {
+            this.stop();
+        }
+        const scene = this.scenes[name];
+        scene.app = null;
+        scene.scenes = null;
+        delete this.scenes[name];
+        return true;
     }
 
     public contains(name: string): boolean {

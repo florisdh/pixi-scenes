@@ -51,4 +51,18 @@ describe('SceneManager', () => {
         manager.stop();
         expect(manager.active).toBeNull();
     });
+
+    it('allows removing scenes', () => {
+        manager.remove('test');
+        expect(manager.active).toBeNull();
+        expect(scene.app).toBeNull();
+        expect(scene.scenes).toBeNull();
+    });
+
+    it('removing active scene should clear active', () => {
+        manager.add('test', scene);
+        manager.start('test');
+        manager.remove('test');
+        expect(manager.active).toBeNull();
+    });
 });
