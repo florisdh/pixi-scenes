@@ -77,4 +77,8 @@ export default class SceneManager {
     public get active(): IScene|null {
         return this.current ? this.scenes[this.current] : null;
     }
+
+    public get activeName(): string|null {
+        return this.current;
+    }
 }

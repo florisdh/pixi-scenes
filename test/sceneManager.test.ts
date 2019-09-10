@@ -26,24 +26,26 @@ describe('SceneManager', () => {
         expect(manager['app']).toBe(app);
     });
     
-    const scene: Scene = new Scene();
+    const scene: Scene = new Scene(),
+        sceneName: string = 'test';
 
     it('should not contain scene before adding', () => {
-        expect(manager.contains('test')).toBe(false);
+        expect(manager.contains(sceneName)).toBe(false);
     });
 
     it('contains scene after adding', () => {
-        manager.add('test', scene);
-        expect(manager.contains('test')).toBe(true);
+        manager.add(sceneName, scene);
+        expect(manager.contains(sceneName)).toBe(true);
     });
 
     it('allows starting scenes', () => {
-        manager.start('test');
+        manager.start(sceneName);
         expect(manager.active).toBe(scene);
+        expect(manager.activeName).toBe(sceneName);
     });
 
     it('does not overwrite scenes', () => {
-        manager.add('test', new Scene());
+        manager.add(sceneName, new Scene());
         expect(manager.active).toBe(scene);
     });
 
@@ -53,16 +55,16 @@ describe('SceneManager', () => {
     });
 
     it('allows removing scenes', () => {
-        manager.remove('test');
+        manager.remove(sceneName);
         expect(manager.active).toBeNull();
         expect(scene.app).toBeNull();
         expect(scene.scenes).toBeNull();
     });
 
     it('removing active scene should clear active', () => {
-        manager.add('test', scene);
-        manager.start('test');
-        manager.remove('test');
+        manager.add(sceneName, scene);
+        manager.start(sceneName);
+        manager.remove(sceneName);
         expect(manager.active).toBeNull();
     });
 });
