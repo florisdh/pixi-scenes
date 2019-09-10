@@ -28,12 +28,16 @@ describe('SceneManager', () => {
     
     const scene: Scene = new Scene();
 
+    it('should not contain scene before adding', () => {
+        expect(manager.contains('test')).toBe(false);
+    });
+
     it('contains scene after adding', () => {
         manager.add('test', scene);
         expect(manager.contains('test')).toBe(true);
     });
 
-    it('keep track of active scene', () => {
+    it('allows starting scenes', () => {
         manager.start('test');
         expect(manager.active).toBe(scene);
     });
@@ -41,5 +45,10 @@ describe('SceneManager', () => {
     it('does not overwrite scenes', () => {
         manager.add('test', new Scene());
         expect(manager.active).toBe(scene);
+    });
+
+    it('allows stopping scenes', () => {
+        manager.stop();
+        expect(manager.active).toBeNull();
     });
 });

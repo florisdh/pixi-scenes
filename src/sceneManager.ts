@@ -32,26 +32,31 @@ export default class SceneManager {
     }
 
     public contains(name: string): boolean {
-        return !!this.scenes[name];
+        return name in this.scenes;
     }
 
     public start(name: string): void {
         if (!this.contains(name) || name === this.current) {
             return;
         }
-
-        // Stop current
-        let active: IScene|null = this.active;
-        if (active) {
-            active.stop();
-            this.app.stage.removeChild(active);
-        }
+        
+        this.stop();
 
         // Start new
         this.current = name;
-        if (active = this.active) {
+        const active = this.active;
+        if (active) {
             this.app.stage.addChild(active);
             active.start();
+        }
+    }
+
+    public stop(): void {
+        let active: IScene|null = this.active;
+        if (active) {
+            this.current = null;
+            active.stop();
+            this.app.stage.removeChild(active);
         }
     }
 
