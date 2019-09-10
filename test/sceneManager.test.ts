@@ -54,6 +54,10 @@ describe('SceneManager', () => {
         expect(manager.active).toBeNull();
     });
 
+    it('list of scenes is correct', () => {
+        expect(manager.sceneNames).toEqual([sceneName]);
+    });
+
     it('allows removing scenes', () => {
         manager.remove(sceneName);
         expect(manager.active).toBeNull();

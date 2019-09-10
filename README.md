@@ -65,7 +65,6 @@ export default class SplashScene extends Scene {
 Please let me know if you're using it or have some feedback. :)
 
 ## TODO
-- Retrieving list of scenes
 - Event system on manager
 - Document code
 - Resize integration

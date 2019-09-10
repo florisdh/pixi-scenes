@@ -81,4 +81,8 @@ export default class SceneManager {
     public get activeName(): string|null {
         return this.current;
     }
+
+    public get sceneNames(): string[] {
+        return Object.keys(this.scenes);
+    }
 }
