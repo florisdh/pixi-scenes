@@ -20,15 +20,15 @@ You can use this library through import/require or by loading it straight into y
 ### Setup
 ```ts
 import {SceneManager} from 'pixi-scenes';
-const sceneManager = new SceneManager(myPixiApplication);
+const scenes = new SceneManager(myPixiApplication);
 ```
 
 ### Using scenes
 ```ts
-sceneManager.add('splash', new SplashScene());
-sceneManager.add('menu', new MenuScene());
-sceneManager.add('gameover', new GameoverScene());
-sceneManager.start('splash');
+scenes.add('splash', new SplashScene());
+scenes.add('menu', new MenuScene());
+scenes.add('gameover', new GameoverScene());
+scenes.start('splash');
 ```
 
 ### Example scene
@@ -50,7 +50,7 @@ export default class SplashScene extends Scene {
     public start(): void {
         this.header.angle = 0;
         setTimeout(() => {
-            this.scenes.start('mainMenu');
+            this.scenes.start('menu');
         }, 5000);
     }
 
@@ -65,9 +65,6 @@ export default class SplashScene extends Scene {
 Please let me know if you're using it or have some feedback. :)
 
 ## TODO
-- Removing scenes
-- Getting active scene name
-- Retrieving list of scenes
 - Event system on manager
 - Document code
 - Resize integration

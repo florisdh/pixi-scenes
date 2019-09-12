@@ -22,7 +22,7 @@ export default class SceneManager {
     }
 
     public add(name: string, scene: IScene): void {
-        if (this.contains(name)) {
+        if (!name || this.contains(name)) {
             return;
         }
         this.scenes[name] = scene;
@@ -31,31 +31,58 @@ export default class SceneManager {
         scene.init();
     }
 
+    public remove(name: string): boolean {
+        if (!name || !this.contains(name)) {
+            return false;
+        }
+        if (this.current === name) {
+            this.stop();
+        }
+        const scene = this.scenes[name];
+        scene.app = null;
+        scene.scenes = null;
+        delete this.scenes[name];
+        return true;
+    }
+
     public contains(name: string): boolean {
-        return !!this.scenes[name];
+        return name in this.scenes;
     }
 
     public start(name: string): void {
         if (!this.contains(name) || name === this.current) {
             return;
         }
-
-        // Stop current
-        let active: IScene|null = this.active;
-        if (active) {
-            active.stop();
-            this.app.stage.removeChild(active);
-        }
+        
+        this.stop();
 
         // Start new
         this.current = name;
-        if (active = this.active) {
+        const active = this.active;
+        if (active) {
             this.app.stage.addChild(active);
             active.start();
         }
     }
 
+    public stop(): void {
+        let active: IScene|null = this.active;
+        if (active) {
+            this.current = null;
+            active.stop();
+            this.app.stage.removeChild(active);
+        }
+    }
+
     public get active(): IScene|null {
         return this.current ? this.scenes[this.current] : null;
+    }
+
+    public get activeName(): string|null {
+        return this.current;
+    }
+
+    public get sceneNames(): string[] {
+        return Object.keys(this.scenes);
     }
 }
