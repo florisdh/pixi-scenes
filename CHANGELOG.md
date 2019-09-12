@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2019-09-12
+### Added
+- Stopping scenes
+- Removing scenes
+- Getting active scene name
+- Retrieving a list of scene names
+- Some code docs
+
 ## [1.2.0] - 2019-09-03
 ### Added
 - Seperate build output for ESM to support usage as module
