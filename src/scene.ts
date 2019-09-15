@@ -35,13 +35,13 @@ export default class Scene extends PIXI.Container implements IScene {
      * Called after this Scene is started from the SceneManager.
      * This means that this Scene is now the active scene in the SceneManager and will be rendered.
      */
-    public start(): void {}
+    public awake(): void {}
 
     /**
      * Called after this Scene is stopped from the SceneManager.
      * The Scene is not the active scene anymore, nor will it be rendered.
      */
-    public stop(): void {}
+    public sleep(): void {}
 
     /**
      * Called with every PIXI update tick while this Scene is the active scene in the SceneManager.

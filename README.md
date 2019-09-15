@@ -47,7 +47,7 @@ export default class SplashScene extends Scene {
         this.addChild(this.header);
     }
 
-    public start(): void {
+    public awake(): void {
         this.header.angle = 0;
         setTimeout(() => {
             this.scenes.start('menu');

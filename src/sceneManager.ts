@@ -87,7 +87,7 @@ export default class SceneManager {
         const active = this.active;
         if (active) {
             this.app.stage.addChild(active);
-            active.start();
+            active.awake();
         }
     }
 
@@ -98,7 +98,7 @@ export default class SceneManager {
         let active: IScene|null = this.active;
         if (active) {
             this.current = null;
-            active.stop();
+            active.sleep();
             this.app.stage.removeChild(active);
         }
     }
