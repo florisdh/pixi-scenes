@@ -39,6 +39,12 @@ export default class Scene extends PIXI.Container implements IScene {
     public init(): void {}
 
     /**
+     * Called after removing this scene from the SceneManager and it has ran before.
+     * You should destroy all of your elements from this scene here.
+     */
+    public destroy(): void {}
+
+    /**
      * Called after this Scene is started from the SceneManager.
      * This means that this Scene is now the active scene in the SceneManager and will be rendered.
      */

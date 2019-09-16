@@ -6,6 +6,7 @@ export default interface IScene extends PIXI.Container {
     scenes: SceneManager|null;
     hasRun: boolean;
     init(): void;
+    destroy(): void;
     start(): void;
     stop(): void;
     update(delta: number): void;
