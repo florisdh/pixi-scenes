@@ -64,13 +64,13 @@ export default class SplashScene extends Scene {
 Splitting your codebase into multiple states/scenes in a common practice in the app/game world and can now easilly be done using this plugin for *PIXI.js*.
 
 ## TODO
-- Destroy function
-- Subscenes structure
 - Event system on manager
+- Allow scene transitions
+- Subscenes structure
 - Resize integration
+- Improve tests
 - Improve readme
 - Add documentation pages
-- Look at threeshaking
 - Add example project
 - Add exports/globals tests
 - Bundle definitions
