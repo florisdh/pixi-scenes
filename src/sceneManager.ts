@@ -39,7 +39,6 @@ export default class SceneManager {
         this.scenes[name] = scene;
         scene.app = this.app;
         scene.scenes = this;
-        scene.init();
     }
 
     /**
@@ -57,6 +56,10 @@ export default class SceneManager {
         const scene = this.scenes[name];
         scene.app = null;
         scene.scenes = null;
+        if (scene.hasRun) {
+            scene.destroy();
+            scene.hasRun = false;
+        }
         delete this.scenes[name];
         return true;
     }
@@ -86,6 +89,10 @@ export default class SceneManager {
         this.current = name;
         const active = this.active;
         if (active) {
+            if (!active.hasRun) {
+                active.init();
+                active.hasRun = true;
+            }
             this.app.stage.addChild(active);
             active.start();
         }
