@@ -19,14 +19,21 @@ export default class Scene extends PIXI.Container implements IScene {
      */
     public scenes: SceneManager|null;
 
+    /**
+     * If the scene has been started before from it's current SceneManager.
+     * The SceneManager will use this to check if the init should be run.
+     */
+    public hasRun: boolean;
+
     constructor() {
         super();
         this.app = null;
         this.scenes = null;
+        this.hasRun = false;
     }
 
     /**
-     * Called directly after this Scene is added to a SceneManager.
+     * Called before starting the scene for the first time in this SceneManager.
      * You should create all of your elements for this scene here.
      */
     public init(): void {}
